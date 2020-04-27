@@ -4,13 +4,12 @@ $( document ).ready(function() {
 
 // FUNCTIONS =======================================================================
 
-/* Loops through all the data pulled from API and stores it into individual
-    variables into a useful way for plotting */
 function loopForData(all_data) {
 
   var total_pop = [];
 
-  for (i=0; i < all_data.length; i++) {
+  // Loops through all the data pulled from API and stores it into individual variables
+  for (i=0; i < all_data.length; i++) { //-----------------------------------------------
 
     var county = all_data[i].county; // COUNTY NAME (ONLY IN CALIFORNIA)
     var wholePop = all_data[i].cvap_net; // ENTIRE POPULATION PER COUNTY
@@ -22,14 +21,15 @@ function loopForData(all_data) {
     var age56_65 = all_data[i].age_56_to_65; // "
     var age66 = all_data[i].age_66_and_over; // "
 
-
+    // Push the wholePop number from each county to new array - " total_pop "
     total_pop.push(wholePop);
 
+    // Sort the total population in descending order: Using sort() and compareFunction (for ints)
+    // and store in new array
     var new_total_pop = total_pop.sort( function (a, b) {
         return b-a
       });
     
-
     // PERCENT OF AGE GROUP REGISTERED TO VOTE PER COUNTY
     let percent_group_1 = (age18_25 / totalReg)*100; 
     let percent_group_2 = (age26_35 / wholePop)*100;
@@ -39,15 +39,21 @@ function loopForData(all_data) {
     let percent_group_6 = (age66 / wholePop)*100;
 
     // PERCENT OF POPULATION REGISTERED TO VOTE PER COUNTY
-    console.log(new_total_pop);
-    console.log(percent_group_1 + percent_group_2 + percent_group_3 + percent_group_4 + percent_group_5 + percent_group_6);
+    //console.log(percent_group_1 + percent_group_2 + percent_group_3 + percent_group_4 + percent_group_5 + percent_group_6);
+
+  } // END OF FOR LOOP --------------------------------------------------------------------
+
+  //console.log(new_total_pop);
+
+  // Take counties with highest population 
+  // Loop through array with sorted populations for each county, and print only first 10 (highest)
+  for (j = 0; j < 10; j++) {
+    console.log(new_total_pop[j])
   }
-
-
 
   
 
-}
+} // END OF FUNCTION 
 
 //==================================================================================
 
@@ -63,14 +69,8 @@ var queryURL = "https://zuz-vol-s3.s3-us-west-2.amazonaws.com/voter_data.json";
     // store all the data into all_data variable 
     var all_data = response;
     
-
     // run function for variables using all_data as argument
     loopForData(all_data);
-    console.log(all_data);
-
-
-
-
 
   });
 
