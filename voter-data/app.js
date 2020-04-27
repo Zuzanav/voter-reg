@@ -8,10 +8,12 @@ $( document ).ready(function() {
     variables into a useful way for plotting */
 function loopForData(all_data) {
 
+  var total_pop = [];
+
   for (i=0; i < all_data.length; i++) {
 
     var county = all_data[i].county; // COUNTY NAME (ONLY IN CALIFORNIA)
-    var wholePop = all_data[i].cvap_net; // ENTIRE POPULATION PER COUNTY 
+    var wholePop = all_data[i].cvap_net; // ENTIRE POPULATION PER COUNTY
     var totalReg = all_data[i].total_registered_voters; // TOTAL REGISTERED TO VOTE PER COUNTY
     var age18_25 = all_data[i].age_18_to_25; // OF AGE GROUP REGISTERED TO VOTE PER COUNTY
     var age26_35 = all_data[i].age_26_to_35; // "
@@ -19,6 +21,14 @@ function loopForData(all_data) {
     var age46_55 = all_data[i].age_46_to_55; // "
     var age56_65 = all_data[i].age_56_to_65; // "
     var age66 = all_data[i].age_66_and_over; // "
+
+
+    total_pop.push(wholePop);
+
+    var new_total_pop = total_pop.sort( function (a, b) {
+        return b-a
+      });
+    
 
     // PERCENT OF AGE GROUP REGISTERED TO VOTE PER COUNTY
     let percent_group_1 = (age18_25 / totalReg)*100; 
@@ -29,8 +39,11 @@ function loopForData(all_data) {
     let percent_group_6 = (age66 / wholePop)*100;
 
     // PERCENT OF POPULATION REGISTERED TO VOTE PER COUNTY
+    console.log(new_total_pop);
     console.log(percent_group_1 + percent_group_2 + percent_group_3 + percent_group_4 + percent_group_5 + percent_group_6);
   }
+
+
 
   
 
