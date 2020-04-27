@@ -7,6 +7,7 @@ $( document ).ready(function() {
 /* Loops through all the data pulled from API and stores it into individual
     variables into a useful way for plotting */
 function loopForData(all_data) {
+
   for (i=0; i < all_data.length; i++) {
     var county = all_data[i].county;
     var wholePop = all_data[i].cvap_net;
@@ -17,7 +18,19 @@ function loopForData(all_data) {
     var age46_55 = all_data[i].age_46_to_55;
     var age56_65 = all_data[i].age_56_to_65;
     var age66 = all_data[i].age_66_and_over;
+
+    let total1 = (age18_25 / totalReg)*100;
+    let total2 = (age26_35 / wholePop)*100;
+    let total3 = (age36_45 / wholePop)*100;
+    let total4 = (age46_55 / wholePop)*100;
+    let total5 = (age56_65 / wholePop)*100;
+    let total6 = (age66 / wholePop)*100;
+
+    console.log(total1 + total2 + total3 + total4 + total5 + total6);
   }
+
+  
+
 }
 
 //==================================================================================
@@ -33,10 +46,11 @@ var queryURL = "https://zuz-vol-s3.s3-us-west-2.amazonaws.com/voter_data.json";
   }).then(function(response) {
     // store all the data into all_data variable 
     var all_data = response;
-    console.log(all_data);
+    
 
-    // run function for variables 
+    // run function for variables using all_data as argument
     loopForData(all_data);
+    console.log(all_data);
 
 
 
