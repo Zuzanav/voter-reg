@@ -6,7 +6,10 @@ $( document ).ready(function() {
 
 function loopForData(all_data) {
 
-  var total_pop = [];
+  console.log(all_data);
+
+  var org_total_pop = [];
+  var unsorted_total_pop = [];
 
   // Loops through all the data pulled from API and stores it into individual variables
   for (i=0; i < all_data.length; i++) { //-----------------------------------------------
@@ -22,14 +25,9 @@ function loopForData(all_data) {
     var age66 = all_data[i].age_66_and_over; // "
 
     // Push the wholePop number from each county to new array - " total_pop "
-    total_pop.push(wholePop);
+    org_total_pop.push(wholePop);
+    unsorted_total_pop.push(wholePop);
 
-    // Sort the total population in descending order: Using sort() and compareFunction (for ints)
-    // and store in new array
-    var new_total_pop = total_pop.sort( function (a, b) {
-        return b-a
-      });
-    
     // PERCENT OF AGE GROUP REGISTERED TO VOTE PER COUNTY
     let percent_group_1 = (age18_25 / totalReg)*100; 
     let percent_group_2 = (age26_35 / wholePop)*100;
@@ -43,15 +41,28 @@ function loopForData(all_data) {
 
   } // END OF FOR LOOP --------------------------------------------------------------------
 
-  //console.log(new_total_pop);
+    // Sort the total population in descending order: Using sort() and compareFunction (for ints)
+    // and store in new array
+    var new_total_pop = org_total_pop.sort( function (a, b) {
+        return b-a
+      });
+
+      console.log(unsorted_total_pop);
 
   // Take counties with highest population 
   // Loop through array with sorted populations for each county, and print only first 10 (highest)
-  for (j = 0; j < 10; j++) {
-    console.log(new_total_pop[j])
-  }
+  var topTen = [];
 
-  
+  for (j = 0; j < 10; j++) {
+    topTen.push(new_total_pop[j]);
+    console.log( unsorted_total_pop.indexOf(new_total_pop[j]))
+  };
+  console.log(topTen);
+
+
+ 
+
+
 
 } // END OF FUNCTION 
 
