@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 
-
+//==================================================================================
 // FUNCTIONS =======================================================================
 
 function loopForData(all_data) {
@@ -98,29 +98,34 @@ function loopForData(all_data) {
     // push TOP 10 - GROUP 6 VOTERS numbers to array
     topTen_Group6.push((group_6[topTenIndex[j]]))
 
-
-
-
+    // PERCENT OF AGE GROUP REGISTERED TO VOTE PER COUNTY
+    let percent_group_1 = (topTen_Group1[j] / topTenPop[j])*100;
+    let percent_group_2 = (topTen_Group2[j] / topTenPop[j])*100;
+    let percent_group_3 = (topTen_Group3[j] / topTenPop[j])*100;
+    let percent_group_4 = (topTen_Group4[j] / topTenPop[j])*100;
+    let percent_group_5 = (topTen_Group5[j] / topTenPop[j])*100;
+    let percent_group_6 = (topTen_Group6[j] / topTenPop[j])*100;
 
   }; // END OF TOP TEN FOR LOOP -----------------------------
 
 
-  console.log(topTenCounties);
-  console.log(topTenReg);
-  console.log(topTen_Group1);
-  console.log(topTen_Group2);
-  console.log(topTen_Group3);
-  console.log(topTen_Group4);
-  console.log(topTen_Group5);
-  console.log(topTen_Group6);
+   
 
-
-
-
+  // console.log(topTenCounties);
+  // console.log(topTenReg);
+  // console.log(topTen_Group1);
+  // console.log(topTen_Group2);
+  // console.log(topTen_Group3);
+  // console.log(topTen_Group4);
+  // console.log(topTen_Group5);
+  // console.log(topTen_Group6);
 
 } // END OF FUNCTION 
 
+
+
 //==================================================================================
+// AJAX CALL ===================================================================
 
 // URL TO JSON ARRAY -------------------------------------------
 var queryURL = "https://zuz-vol-s3.s3-us-west-2.amazonaws.com/voter_data.json";
@@ -139,11 +144,13 @@ var queryURL = "https://zuz-vol-s3.s3-us-west-2.amazonaws.com/voter_data.json";
 
   });
 
+//============================================================================
+//==================================================================================
 
 
 
-
-// PLOTLY CHART --------------------------------------------------
+//==================================================================================
+// PLOTY CHART ==================================================================
 
 
 function plotChart() {
@@ -154,8 +161,12 @@ function plotChart() {
 	// Plotly.newPlot( TESTER, [{
 	// x: [1, 2, 3, 4, 5],
 	// y: [1, 2, 4, 8, 16] }], {
-	// margin: { t: 0 } } );
+  // margin: { t: 0 } } );
+  
 
+//===============================================================================
+//==================================================================================
 
-});
+});  // END OF DOCUMENT READY FUNCTION
+
 
