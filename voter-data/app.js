@@ -121,6 +121,11 @@ function loopForData(all_data) {
   var trace1 = {
     x: topTenCounties,
     y: percent_group_6,
+    marker:{
+      color: ['rgb(204, 230, 255, 1)', 'rgb(204, 230, 255, 1)', 'rgb(204, 230, 255, 1)', 'rgb(204, 230, 255, 1)', 
+      'rgb(204, 230, 255, 1)', 'rgb(204, 230, 255, 1)', 'rgb(204, 230, 255, 1)', 'rgb(204, 230, 255, 1)', 
+      'rgb(204, 230, 255, 1)', 'rgb(204, 230, 255, 1)']
+    },
     name: 'Age 66+',
     type: 'bar'
     
@@ -129,6 +134,12 @@ function loopForData(all_data) {
   var trace2 = {
     x: topTenCounties,
     y: percent_group_5,
+    marker:{
+      color: ['rgb(153, 206, 255, 1)', 'rgb(153, 206, 255, 1)', 'rgb(153, 206, 255, 1)', 'rgb(153, 206, 255, 1)', 
+      'rgb(153, 206, 255, 1)', 'rgb(153, 206, 255, 1)', 'rgb(153, 206, 255, 1)', 'rgb(153, 206, 255, 1)', 
+      'rgb(153, 206, 255, 1)', 'rgb(153, 206, 255, 1)'
+      ]
+    },
     name: 'Age 56-65',
     type: 'bar'
   };
@@ -136,6 +147,12 @@ function loopForData(all_data) {
   var trace3 = {
     x: topTenCounties,
     y: percent_group_4,
+    marker:{
+      color: ['rgb(102, 181, 255, 1)', 'rgb(102, 181, 255, 1)', 'rgb(102, 181, 255, 1)', 'rgb(102, 181, 255, 1)', 
+      'rgb(102, 181, 255, 1)', 'rgb(102, 181, 255, 1)', 'rgb(102, 181, 255, 1)', 'rgb(102, 181, 255, 1)', 
+      'rgb(102, 181, 255, 1)', 'rgb(102, 181, 255, 1)'
+      ]
+    },
     name: 'Age 56-65',
     type: 'bar'
   };
@@ -143,6 +160,12 @@ function loopForData(all_data) {
   var trace4 = {
     x: topTenCounties,
     y: percent_group_3,
+    marker:{
+      color: ['rgb(51, 156, 255, 1)', 'rgb(51, 156, 255, 1)', 'rgb(51, 156, 255, 1)', 'rgb(51, 156, 255, 1)', 
+      'rgb(51, 156, 255, 1)', 'rgb(51, 156, 255, 1)', 'rgb(51, 156, 255, 1)', 'rgb(51, 156, 255, 1)', 
+      'rgb(51, 156, 255, 1)', 'rgb(51, 156, 255, 1)'
+      ]
+    },
     name: 'Age 56-65',
     type: 'bar'
   };
@@ -150,6 +173,12 @@ function loopForData(all_data) {
   var trace5 = {
     x: topTenCounties,
     y: percent_group_2,
+    marker:{
+      color: ['rgb(0, 105, 204, 1)', 'rgb(0, 105, 204, 1)', 'rgb(0, 105, 204, 1)', 'rgb(0, 105, 204, 1)', 
+      'rgb(0, 105, 204, 1)', 'rgb(0, 105, 204, 1)', 'rgb(0, 105, 204, 1)', 'rgb(0, 105, 204, 1)', 
+      'rgb(0, 105, 204, 1)', 'rgb(0, 105, 204, 1)'
+      ]
+    },
     name: 'Age 56-65',
     type: 'bar'
   };
@@ -157,16 +186,60 @@ function loopForData(all_data) {
   var trace6 = {
     x: topTenCounties,
     y: percent_group_1,
+    marker:{
+      color: ['rgb(0, 77, 153, 1)', 'rgb(0, 77, 153, 1)', 'rgb(0, 77, 153, 1)', 'rgb(0, 77, 153, 1)', 
+      'rgb(0, 77, 153, 1)', 'rgb(0, 77, 153, 1)', 'rgb(0, 77, 153, 1)', 'rgb(0, 77, 153, 1)', 
+      'rgb(0, 77, 153, 1)', 'rgb(0, 77, 153, 1)'
+      ]
+    },
     name: 'Age 56-65',
     type: 'bar'
   };
 
-  
   var data = [trace1, trace2, trace3, trace4, trace5, trace6];
   
   var layout = {barmode: 'stack'};
   
   Plotly.newPlot('myDiv', data, layout);
+
+
+
+  //--------------------------------------------
+
+
+  var trace1 = {
+    x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    y: [20, 14, 25, 16, 18, 22, 19, 15, 12, 16, 14, 17],
+    type: 'bar',
+    name: 'Primary Product',
+    marker: {
+      color: 'rgb(49,130,189)',
+      opacity: 0.7,
+    }
+  };
+  
+  var trace2 = {
+    x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    y: [19, 14, 22, 14, 16, 19, 15, 14, 10, 12, 12, 16],
+    type: 'bar',
+    name: 'Secondary Product',
+    marker: {
+      color: 'rgb(204,204,204)',
+      opacity: 0.5
+    }
+  };
+  
+  var data = [trace1, trace2];
+  
+  var layout = {
+    title: 'Total Population (of voting age) vs Total Registered',
+    xaxis: {
+      tickangle: -45
+    },
+    barmode: 'group'
+  };
+  
+  Plotly.newPlot('myDiv2', data, layout);
 
 //-----------------------------------------------------------------------
 
