@@ -31,6 +31,7 @@ function loopForData(all_data) {
     var age56_65 = all_data[i].age_56_to_65; // "
     var age66 = all_data[i].age_66_and_over; // "
 
+
     // Push all the data into their own arrays ---------------------------
     total_pop.push(wholePop); // total population of each county
     unsorted_total_pop.push(wholePop); // total population of each county (This is a duplicate. Left unsorted for later reference)
@@ -62,6 +63,13 @@ function loopForData(all_data) {
   var topTen_Group4 =[];
   var topTen_Group5 =[];
   var topTen_Group6 =[];
+
+  var percent_group_1 = [];
+  var percent_group_2 = [];
+  var percent_group_3 = [];
+  var percent_group_4 = [];
+  var percent_group_5 = [];
+  var percent_group_6 = [];
 
   // BEGIN TOP TEN FOR LOOP ----------------------------------
   // Take counties with highest population 
@@ -99,26 +107,74 @@ function loopForData(all_data) {
     topTen_Group6.push((group_6[topTenIndex[j]]))
 
     // PERCENT OF AGE GROUP REGISTERED TO VOTE PER COUNTY
-    let percent_group_1 = (topTen_Group1[j] / topTenPop[j])*100;
-    let percent_group_2 = (topTen_Group2[j] / topTenPop[j])*100;
-    let percent_group_3 = (topTen_Group3[j] / topTenPop[j])*100;
-    let percent_group_4 = (topTen_Group4[j] / topTenPop[j])*100;
-    let percent_group_5 = (topTen_Group5[j] / topTenPop[j])*100;
-    let percent_group_6 = (topTen_Group6[j] / topTenPop[j])*100;
+    percent_group_1.push( ((topTen_Group1[j] / topTenPop[j])*100).toFixed(2) );
+    percent_group_2.push( ((topTen_Group2[j] / topTenPop[j])*100).toFixed(2) );
+    percent_group_3.push( ((topTen_Group3[j] / topTenPop[j])*100).toFixed(2) );
+    percent_group_4.push( ((topTen_Group4[j] / topTenPop[j])*100).toFixed(2) );
+    percent_group_5.push( ((topTen_Group5[j] / topTenPop[j])*100).toFixed(2) );
+    percent_group_6.push( ((topTen_Group6[j] / topTenPop[j])*100).toFixed(2) );
 
   }; // END OF TOP TEN FOR LOOP -----------------------------
 
+// PLOTY CHART -----------------------------------------------------------
 
-   
+  var trace1 = {
+    x: topTenCounties,
+    y: percent_group_6,
+    name: 'Age 66+',
+    type: 'bar'
+    
+  };
+  
+  var trace2 = {
+    x: topTenCounties,
+    y: percent_group_5,
+    name: 'Age 56-65',
+    type: 'bar'
+  };
 
-  // console.log(topTenCounties);
-  // console.log(topTenReg);
-  // console.log(topTen_Group1);
-  // console.log(topTen_Group2);
-  // console.log(topTen_Group3);
-  // console.log(topTen_Group4);
-  // console.log(topTen_Group5);
-  // console.log(topTen_Group6);
+  var trace3 = {
+    x: topTenCounties,
+    y: percent_group_4,
+    name: 'Age 56-65',
+    type: 'bar'
+  };
+
+  var trace4 = {
+    x: topTenCounties,
+    y: percent_group_3,
+    name: 'Age 56-65',
+    type: 'bar'
+  };
+
+  var trace5 = {
+    x: topTenCounties,
+    y: percent_group_2,
+    name: 'Age 56-65',
+    type: 'bar'
+  };
+
+  var trace6 = {
+    x: topTenCounties,
+    y: percent_group_1,
+    name: 'Age 56-65',
+    type: 'bar'
+  };
+
+  
+  var data = [trace1, trace2, trace3, trace4, trace5, trace6];
+  
+  var layout = {barmode: 'stack'};
+  
+  Plotly.newPlot('myDiv', data, layout);
+
+//-----------------------------------------------------------------------
+
+
+  
+
+  
+
 
 } // END OF FUNCTION 
 
@@ -142,30 +198,14 @@ var queryURL = "https://zuz-vol-s3.s3-us-west-2.amazonaws.com/voter_data.json";
     // run function for variables using all_data as argument
     loopForData(all_data);
 
+
+
   });
 
 //============================================================================
 //==================================================================================
 
 
-
-//==================================================================================
-// PLOTY CHART ==================================================================
-
-
-function plotChart() {
-
-}
-
-	// var TESTER = document.getElementById('tester');
-	// Plotly.newPlot( TESTER, [{
-	// x: [1, 2, 3, 4, 5],
-	// y: [1, 2, 4, 8, 16] }], {
-  // margin: { t: 0 } } );
-  
-
-//===============================================================================
-//==================================================================================
 
 });  // END OF DOCUMENT READY FUNCTION
 
