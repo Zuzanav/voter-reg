@@ -153,7 +153,7 @@ function loopForData(all_data) {
       'rgb(102, 181, 255, 1)', 'rgb(102, 181, 255, 1)'
       ]
     },
-    name: 'Age 56-65',
+    name: 'Age 46-55',
     type: 'bar'
   };
 
@@ -166,7 +166,7 @@ function loopForData(all_data) {
       'rgb(51, 156, 255, 1)', 'rgb(51, 156, 255, 1)'
       ]
     },
-    name: 'Age 56-65',
+    name: 'Age 36-45',
     type: 'bar'
   };
 
@@ -179,7 +179,7 @@ function loopForData(all_data) {
       'rgb(0, 105, 204, 1)', 'rgb(0, 105, 204, 1)'
       ]
     },
-    name: 'Age 56-65',
+    name: 'Age 26-35',
     type: 'bar'
   };
 
@@ -192,7 +192,7 @@ function loopForData(all_data) {
       'rgb(0, 77, 153, 1)', 'rgb(0, 77, 153, 1)'
       ]
     },
-    name: 'Age 56-65',
+    name: 'Age 18-25',
     type: 'bar'
   };
 
