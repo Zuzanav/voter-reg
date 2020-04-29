@@ -208,23 +208,23 @@ function loopForData(all_data) {
 
 
   var trace1 = {
-    x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-    y: [20, 14, 25, 16, 18, 22, 19, 15, 12, 16, 14, 17],
+    x: topTenCounties,
+    y: topTenPop,
     type: 'bar',
-    name: 'Primary Product',
+    name: 'Total Population',
     marker: {
-      color: 'rgb(49,130,189)',
+      color: 'rgb(0, 105, 204)',
       opacity: 0.7,
     }
   };
   
   var trace2 = {
-    x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-    y: [19, 14, 22, 14, 16, 19, 15, 14, 10, 12, 12, 16],
+    x: topTenCounties,
+    y: topTenReg,
     type: 'bar',
-    name: 'Secondary Product',
+    name: 'Registered',
     marker: {
-      color: 'rgb(204,204,204)',
+      color: 'rgb(153, 206, 255)',
       opacity: 0.5
     }
   };
@@ -242,11 +242,6 @@ function loopForData(all_data) {
   Plotly.newPlot('myDiv2', data, layout);
 
 //-----------------------------------------------------------------------
-
-
-  
-
-  
 
 
 } // END OF FUNCTION 
@@ -271,12 +266,9 @@ var queryURL = "https://zuz-vol-s3.s3-us-west-2.amazonaws.com/voter_data.json";
     // run function for variables using all_data as argument
     loopForData(all_data);
 
-
-
   });
 
 //============================================================================
-//==================================================================================
 
 
 
