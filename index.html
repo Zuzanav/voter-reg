@@ -29,7 +29,8 @@
 <body>
   <!-- SITE TITLE ---------------------------------------->
   <div class="heading">
-    <h1> Voter Registration vs Total Population Data </h1>
+    <h1> Voter Registration vs Total Population </h1>
+    <h2>by county in California</h2>
   </div>
 
   <!-- PARAGRAPH ---------------------------------------->
@@ -41,10 +42,6 @@
   <p> In order of the ten most populated California counties, this graph compares
     the total population (of voting age) to how many are registered to vote. 
   </p>
-  <p> Based on the numbers below, poor voter turnout is not a result of low registration numbers, 
-    at least for the most populated counties in California. It would be interesting to see the numbers
-    for other counties. 
-  </p>
 </div>
 
   <!-- PLOTLY GRAPH ---------------------------------------->
@@ -52,10 +49,11 @@
 
   <!-- PARAGRAPH - AGE GROUP GRAPH ---------------------------------------->
   <div class="text-box">
-  <p> Next I wondered, what is the age group makeup of those who are registered, and is one age
+  <p> Next I wondered, what is the age makeup of those registered, and is one age
     group registered to vote more than another? 
   </p>
-  <p> This graph shows the same counties but shows the percentage of certain age groups that are registered to vote. 
+  <p> This graph shows the same counties but shows the percentage of certain age groups that are registered to vote. Here 
+    you can also see that not one county has 100% of their voting-age population registered and teeters around the eightieth percentile.
   </p>
 </div>
 
@@ -63,12 +61,20 @@
   <div id='myDiv' class="plotly-graph"><!-- Plotly chart will be drawn inside this DIV --></div>
 
   <!-- PARAGRAPH - CONCLUSION ---------------------------------------->
-  <div class="text-box">
+  <div class="text-box" id="conclusion-box">
   <h3>In Conclusion:</h3>
   <p> 
-    The numbers personally surprised me. I thought those registered to vote would be much lower. If I were 
-    to continue browsing data to further analyze my initial question, I would like to compare ethnic groups and 
-    political groups and see if registration differs there. 
+    The numbers surprised me. I thought the numbers showing people who are registered to vote would be much lower.
+    I also expected the numbers to be heavily skewed to one side with regards to what age group has more registrants.
+    What this also tells me is I'd much prefer to look at how many people within their own age group are registered 
+    to vote as opposed to comparing them to the entire population. For example, of all the 18-25 year olds in Los Angeles, what percent of them 
+    are registered to vote? 
+  </p>
+  <h3>Expanding this Project...</h3>
+  <p> If I were to continue browsing data to further analyze my initial question, I would like to compare ethnic groups and 
+    political groups and see if registration differs there. I would also compare the counties with the lowest populations
+    to see if there is correlation between population size and registration, or population size and political affiliation. 
+
   </p>
 </div>
 

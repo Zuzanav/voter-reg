@@ -232,7 +232,6 @@ function loopForData(all_data) {
   var data = [trace1, trace2];
   
   var layout = {
-    title: 'Total Population (of voting age) vs Total Registered',
     xaxis: {
       tickangle: -45
     },
