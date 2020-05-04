@@ -15,4 +15,5 @@ As is typical, it left me with more questions than answers. Take a look for your
 - JavaScript
 - Plotly Library
 - jQuery 
+- S3
 - HTML/CSS
